@@ -7,13 +7,13 @@ function generatoreNumero(numeri) {
 function numeriBombaFacile(ciao) {
   var min = 1;
   var max = 16;
-  var bu= "";
+  var insiemeNumeri= "";
   var listaNumeri = [];
   for (i=min; i<= max; i++){
     bu = ciao * i;
-    listaNumeri.push(bu);
+    listaNumeri.push(insiemeNumeri);
   }
   return listaNumeri;
 };
 
-var zingaro = console.log(numeriBombaFacile());
+var verifica = console.log(numeriBombaFacile());
