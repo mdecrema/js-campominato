@@ -9,7 +9,7 @@ function generatoreNum() {
     cento.splice(numGen, 1);
     insiemeNumeri.push(numGen);
   }
-  return cento;
+  return insiemeNumeri;
 };
 
 
