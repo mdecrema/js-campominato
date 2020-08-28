@@ -4,7 +4,7 @@ function generatoreNumero(numeri) {
   return numeri;
 };
 
-function numeriBombaFacile(ciao) {
+function cicloNumRandom(ciao) {
   var min = 1;
   var max = 16;
   var insiemeNumeri= "";
@@ -16,4 +16,4 @@ function numeriBombaFacile(ciao) {
   return listaNumeri;
 };
 
-var verifica = console.log(numeriBombaFacile());
+var verifica = console.log(cicloNumRandom());
