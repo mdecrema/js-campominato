@@ -1,5 +1,7 @@
 var cento = numeriPossibili();
 var check = console.log(generatoreNum());
+var gioca = gioca();
+
 
 
 function generatoreNum() {
@@ -19,4 +21,15 @@ function numeriPossibili() {
     insiemeNumPoss.push(i);
   }
   return insiemeNumPoss;
+};
+
+function gioca(richiestaNum) {
+  var richiestaNum = prompt("Inserisci un numero:");
+  var gameOver=false;
+  for (i=1; i<=84; i++) {
+    if (check.includes(richiestaNum)) {
+      gameOver=true;
+      alert("LOSER");
+    }
+  }
 };
