@@ -6,10 +6,10 @@ function generatoreNum() {
   var insiemeNumeri = [];
   for (i=1; i<=16; i++) {
     var numGen = Math.floor(Math.random()* cento.length);
-    cento.splice(numGen, numGen[i]);
+    cento.splice(numGen, 1);
     insiemeNumeri.push(numGen);
   }
-  return insiemeNumeri;
+  return cento;
 };
 
 
