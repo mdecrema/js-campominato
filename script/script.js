@@ -1,12 +1,20 @@
-var check = numeriPossibili();
-var check2 = console.log(generatoreNumeri());
+var cento = numeriPossibili();
+var check = console.log(generatoreNum());
+
+
+function generatoreNum() {
+  var insiemeNumeri = [];
+  for (i=1; i<=16; i++) {
+    var numGen = Math.floor(Math.random()*cento.length);
+    insiemeNumeri.push(numGen);
+  }
+  return insiemeNumeri;
+};
 
 function numeriPossibili() {
-  var insiemeNumeri = "";
-  var listaNumeriPossibili = [];
+  insiemeNumPoss = [];
   for (i=1; i<=100; i++) {
-    insiemeNumeri += i +",";
+    insiemeNumPoss.push(i);
   }
-  listaNumeriPossibili.push(insiemeNumeri);
-  return listaNumeriPossibili;
+  return insiemeNumPoss;
 };
