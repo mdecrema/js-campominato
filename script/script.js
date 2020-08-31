@@ -1,6 +1,3 @@
-
-
-
 // Funzione che genera un numero random dato un valore minimo ed uno massimo
 function generatoreNum(numMin, numMax) {
   var num = Math.floor(Math.random()* (numMax - numMin + 1)) + numMin;
@@ -31,27 +28,25 @@ function validatore(array, elemento) {
   return numeroUguale;
 };
 
+// Funzione che controlla numeri bomba e i numeri inseriti dall'utente e restituisce il livello raggiunto
 function richiestaNum() {
   var numInseriti = [];
   var bomba = false;
-    while(numInseriti.length<8 && bomba == false) {
+  // Ciclo while per chiedere all'utente di inserire numeri finchè non sbaglia
+    while(numInseriti.length<84 && bomba == false) {
       var numUtente = parseInt(prompt("Inserisci un numero fra 1 e 100:"));
-      if (validatore(numInseriti, numUtente) == false) {
-        // Controllo che il numero inserito dall'utente non sia nell'elenco dei numeri bomba
+      if (isNaN(numUtente) || numUtente < 1 || numUtente > 100) {
+        alert("Errore! Devi inserire un valore fra 1 e 100! Riprova:")
+      } else if (validatore(numInseriti, numUtente) == false) {
+      // Controllo che il numero inserito dall'utente non sia nell'elenco dei numeri bomba
         if (validatore(insiemeNumPoss, numUtente) == true) {
           bomba = true;
         } else {
           numInseriti.push(numUtente);
         }
-
       }
     }
- return bomba;
-};
-
-var check = console.log(richiestaNum());
-
-function livelloRaggiunto() {
+// Eseguo un controllo booleano in modo da definire il livello raggiunto
   if (bomba == true) {
     alert("BOMBA! Hai perso. Livello raggiunto: "+numInseriti.length);
   } else {
@@ -59,4 +54,5 @@ function livelloRaggiunto() {
   }
 };
 
-var checkFinale = console.log(livelloRaggiunto());
+// Eseguo la funzione
+console.log(richiestaNum());
