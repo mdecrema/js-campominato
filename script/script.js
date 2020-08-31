@@ -1,5 +1,4 @@
-var cento = console.log(numeriPossibili());
-var check = console.log(richiestaNum());
+
 //var numUtente= console.log(richiestaNum());
 
 
@@ -9,7 +8,7 @@ function generatoreNum(numMin, numMax) {
 };
 
 
-function numeriPossibili() {
+// Genero 16 numeri e li metto in un array
   var insiemeNumPoss = [];
   while (insiemeNumPoss.length<16) {
     var numGen = generatoreNum(1, 100);
@@ -17,8 +16,8 @@ function numeriPossibili() {
       insiemeNumPoss.push(numGen);
     }
 }
-return insiemeNumPoss;
-};
+console.log(insiemeNumPoss);
+
 
 function validatore(array, elemento) {
   var numeroUguale = false;
@@ -34,11 +33,19 @@ function validatore(array, elemento) {
 
 function richiestaNum() {
   var numInseriti = [];
-    while(numInseriti.length<3) {
+  var bomba = false;
+    while(numInseriti.length<84 && bomba == false) {
       var numUtente = parseInt(prompt("Inserisci un numero fra 1 e 100:"));
       if (validatore(numInseriti, numUtente) == false) {
-        numInseriti.push(numUtente);
+
+        if (validatore(insiemeNumPoss, numUtente) == true) {
+          alert("BOMBA! Hai perso!");
+        } else {
+          numInseriti.push(numUtente);
+        }
       }
   }
  return numInseriti;
 };
+
+var check = console.log(richiestaNum());
