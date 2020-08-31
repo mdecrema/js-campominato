@@ -1,38 +1,44 @@
-var cento = numeriPossibili();
-var check = generatoreNum();
-var check2= console.log(confrontoNum());
+var cento = console.log(numeriPossibili());
+var check = console.log(richiestaNum());
+//var numUtente= console.log(richiestaNum());
 
 
-
-
-function generatoreNum() {
-  var insiemeNumeri = [];
-  for (i=1; i<=16; i++) {
-    var numGen = Math.floor(Math.random()* cento.length);
-    cento.splice(numGen, 1);
-    insiemeNumeri.push(numGen);
-  }
-  return insiemeNumeri;
+function generatoreNum(numMin, numMax) {
+  var num = Math.floor(Math.random()* (numMax - numMin + 1)) + numMin;
+  return num;
 };
 
 
 function numeriPossibili() {
   var insiemeNumPoss = [];
-  for (i=1; i<=100; i++) {
-    insiemeNumPoss.push(i);
-  }
-  return insiemeNumPoss;
+  while (insiemeNumPoss.length<16) {
+    var numGen = generatoreNum(1, 100);
+    if (validatore(insiemeNumPoss, numGen) == false) {
+      insiemeNumPoss.push(numGen);
+    }
+}
+return insiemeNumPoss;
 };
 
-function confrontoNum(richiestaNum) {
-  var richiestaNum = prompt("Inserisci un numero:");
-  var gameOver=false;
-  for (var i = 0; i <= cento.length; i++) {
-    if (check.includes(richiestaNum)) {
-      gameOver=true;
-    } else {
-      gameOver=false;
-    }
+function validatore(array, elemento) {
+  var numeroUguale = false;
+  var i = 0;
+    while (i < array.length && numeroUguale == false) {
+      if (array[i] == elemento) {
+        numeroUguale = true;
+      }
+    i++;
   }
-  return gameOver;
+  return numeroUguale;
+};
+
+function richiestaNum() {
+  var numInseriti = [];
+    while(numInseriti.length<3) {
+      var numUtente = parseInt(prompt("Inserisci un numero fra 1 e 100:"));
+      if (validatore(numInseriti, numUtente) == false) {
+        numInseriti.push(numUtente);
+      }
+  }
+ return numInseriti;
 };
